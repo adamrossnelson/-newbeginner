@@ -1,0 +1,11 @@
+{# HOME HTML #}
+{% extends "base.html" %}
+
+{% block content %}
+
+    <p>Would you like to see me do a trick?</p>
+    <a href="{{url_for('index')}}">Yes, Lemme See</a> - | -
+    <a href="{{url_for('index')}}">No, Stay Here</a>
+    <p>Note: At Present these links go no place else.</p>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{# SENTIMENT HTML #}
+{% extends "base.html" %}
+
+{% block content %}
+
+    <p>Here you can see me measure and report the sentiment of text.</p>
+
+    <form method="POST" novalidate>
+
+        {{ form.hidden_tag() }}
+        <p>{{ form.text_to_analyze() }}</p>
+        <p>{{ form.submit() }}</p>
+
+    </form>
+
+    {% if nltk_scores %}
+
+        <p>The text you entered conveys the following sentimental metrics:</p>
+
+        <div>
+            <table style="margin-left: auto; margin-right: auto; width: 60%;">
+                <thead>
+                    <tr>
+                        <th>positive</th><th>negative</th><th>neutral</th><th>compound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ nltk_scores['pos'] }}</td><td>{{ nltk_scores['neg'] }}</td>
+                        <td>{{ nltk_scores['neu'] }}</td><td>{{ nltk_scores['compound'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+
+        <p>To review sentiment scores, enter text in the box above and click submit.</p>
+
+    {% endif %}
+
+    <div class="long-form-content">
+        <h2>Understanding Sentiment Analysis</h2>
+        <p>Sentiment analysis is a computational approach to detecting and interpreting subjective information in text. It is commonly used to discern emotional tone... to gain an understanding of the attitudes, opinions, and emotions.</p>
+
+        <h2>Our Sentiment Analysis Model</h2>
+        <p>This page generates sentiment scores using the VADER sentiment analyzer from the Natural Language Toolkit (NLTK) which is a powerful tool specifically designed to understand nuances of sentiment. It evaluates text and gives a score that ranges from negative to positive, indicating the underlying sentiment. The scores are broken out into four categories:</p>
+
+            <ul>
+                <li><strong>Positive:</strong> Reflects the amount of positive sentiment in the text.</li>
+                <li><strong>Negative:</strong> Reflects the amount of negative sentiment in the text.</li>
+                <li><strong>Neutral:</strong> Reflects the amount of neutral sentiment in the text.</li>
+                <li><strong>Compound:</strong> An aggregate score that represents the overall sentiment of the text, combining the positive, negative, and neutral scores.</li>
+            </ul>
+
+        <p>VADER is sensitive to both the polarity and the intensity of emotions and sentiments expressed in text, and it is adept at handling idioms, slang, emoticons, and other forms of colloquial language.</p>
+    </div>
+
+{% endblock %}

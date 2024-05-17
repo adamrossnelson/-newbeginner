@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Data Science NewBeginner Demonstrations</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <header>
+            <h1>Hello From NewBeginner</h1>
+            <p>
+                <a href="{{ url_for('index') }}">
+                    Home</a> |
+                <a href="https://twitter.com/AdamRossNelson">
+                    Visit Me On LinkedIn</a> |
+                <a href="https://www.linkedin.com/in/arnelson/">
+                    Visit Me On Twitter</a> |
+                <a href="https://github.com/adamrossnelson/confident">
+                    Confident Data Science</a> |
+                <a href="{{ url_for('sentiment_page') }}">
+                    Sentiment Analysis</a>
+                </p>
+                <hr>
+        </header>
+        <main>
+
+            {% block content %}
+
+            {% endblock %}
+
+        </main>
+        <footer>
+                <hr>
+                <a href="{{ url_for('index') }}">
+                    Home</a> |
+                <a href="https://twitter.com/AdamRossNelson">
+                    Visit Me On LinkedIn</a> |
+                <a href="https://www.linkedin.com/in/arnelson/">
+                    Visit Me On Twitter</a> |
+                <a href="https://github.com/adamrossnelson/confident">
+                    Confident Data Science</a> |
+                <a href="{{ url_for('sentiment_page') }}">
+                    Sentiment Analysis</a>
+        </footer>
+    </body>
+</html>
